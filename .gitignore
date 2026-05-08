@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# working/temp docs and output
+_temp_*.py
+*.zip
+
+# misc ignore
+.DS_Store

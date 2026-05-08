@@ -1,0 +1,28 @@
+name: co-climate-thielen
+channels:
+  - conda-forge
+dependencies:
+  - python==3.14
+  - numpy
+  - pandas
+  - geopandas
+  - xarray
+  - rioxarray
+  - rasterio
+  - shapely
+  - matplotlib
+  - cartopy
+  - pyproj
+  - pillow
+  - requests
+  - metpy
+  - cmocean
+  - cmweather
+  - scikit-image
+  - colorspacious
+  - xesmf
+  - fsspec
+  - s3fs
+  - netcdf4
+  - zarr
+  
