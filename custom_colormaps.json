@@ -121,7 +121,7 @@
             "improved_equivalent": "updated_wetdry"
         },
         "updated_wetdry": {
-            "color_list": ["#00291E","#00362B","#00443A","#005249","#006158","#007067","#007F76","#118E84","#379D93","#55ACA1","#72BAB0","#8EC8BF","#AAD6CE","#C6E4DD","#E1F2E9","#FBFFF4","#F2EFD9","#E8DDBE","#DDCCA1","#D2BB84","#C8AA68","#BD984C","#B38732","#A87518","#9C6400","#8F5400","#804500","#703800","#5F2B00","#4F1F00","#411200"],
+            "color_list": ["#00291E","#00352B","#004339","#005148","#005F56","#006E65","#007D73","#098B81","#339A8F","#51A89D","#6DB6AC","#89C3BB","#A5D0C9","#C0DED7","#DBECE3","#F4FAED","#ECE8D3","#E2D7B8","#D8C69B","#CDB67F","#C3A563","#B99449","#AF832F","#A57214","#9A6200","#8C5200","#7E4400","#6E3600","#5E2A00","#4F1E00","#411200"],
             "type": "continuous",
             "default_mpl_type": "LinearSegmentedColormap",
             "quantization_levels": "LUT"
