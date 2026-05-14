@@ -110,10 +110,18 @@
             "color_list": ["#F5EBE8","#F1E4E1","#EDDED9","#EAD7D0","#E8CFC8","#E6C8BF","#E3C1B6","#E1BAAD","#DFB3A4","#DDAB9B","#DBA492","#D99D89","#D79580","#D58E77","#D3866E","#D07F66","#CE775D","#CB6F56","#C8674F","#C55F47","#C25741","#BE4F3A","#BA4734","#B54030","#B0392D","#A9322B","#A22C2A","#9B2629","#942029","#8D1A28","#861427","#7F0B24"],
             "type": "continuous",
             "default_mpl_type": "LinearSegmentedColormap",
-            "quantization_levels": "LUT"
+            "quantization_levels": "LUT",
+            "improved_equivalent": "cmo.amp"
         },
         "updated_govoffice_change_drought": {
             "color_list": ["#3F92E5","#499AEB","#53A1EF","#5CA9F2","#66B1F4","#70B9F5","#7AC1F7","#86C8F8","#92D0F9","#9FD7FA","#ADDEFB","#BCE5FB","#CCEBFC","#DBF2FC","#EBF8FB","#F9FFF9","#F7F7E6","#F4EFD3","#F0E7C0","#EBDFAD","#E6D79B","#E2D08A","#DDC87A","#D8C06B","#D3B85E","#CEB051","#C8A846","#C2A03C","#BB9932","#B4922A","#AC8B22"],
+            "type": "continuous",
+            "default_mpl_type": "LinearSegmentedColormap",
+            "quantization_levels": "LUT",
+            "improved_equivalent": "updated_wetdry"
+        },
+        "updated_wetdry": {
+            "color_list": ["#00291E","#00362B","#00443A","#005249","#006158","#007067","#007F76","#118E84","#379D93","#55ACA1","#72BAB0","#8EC8BF","#AAD6CE","#C6E4DD","#E1F2E9","#FBFFF4","#F2EFD9","#E8DDBE","#DDCCA1","#D2BB84","#C8AA68","#BD984C","#B38732","#A87518","#9C6400","#8F5400","#804500","#703800","#5F2B00","#4F1F00","#411200"],
             "type": "continuous",
             "default_mpl_type": "LinearSegmentedColormap",
             "quantization_levels": "LUT"
