@@ -26,17 +26,21 @@
         <label class="input-group-text" for="VarKeySelect">Variable Key</label>
         <select class="form-select" id="VarKeySelect" tabindex="1">
           <option selected>Choose...</option>
-          <option value="agg_5th_pct_change">agg_5th_pct_change</option>
-          <option value="agg_20th_pct_change">agg_20th_pct_change</option>
+          <option>...populating keys...</option>
         </select>
         <label class="input-group-text" for="VarKeySelect">Subkey</label>
         <select class="form-select" id="VarKeySelect" aria-label="Disabled until variable selected" disabled tabindex="2">
           <option selected>← Select Variable ←</option>
         </select>
       </div>
+      <div id="PathRow" class="row d-none">
+        <div class="alert alert-primary" role="alert">
+          This figure is located at the following path: <span id="RelPath" class="font-monospace">generated_figures/SWEIpctchangeinfreq/agg_5th_pct_change_GWL_2.5/</span>
+        </div>
+      </div>
       <div class="row">
         <div class="col-lg-8 mb-3">
-          <img src="EXAMPLE_agg_5th_pct_change_GWL_2.5.png" class="img-fluid">
+          <img src="EXAMPLE_blank_figure.png" class="img-fluid">
         </div>
         <div class="col-lg-4 mb-3">
           <div class="card mb-3" style="width: 100%;">
@@ -53,22 +57,22 @@
               <pre id="LegendText">
 Colorado Climate Hazard Map — Legend Metadata
 
-Export date         : {export_date}
-Active layer        : {meta['name']}
-Hazard type         : {hazard_id.upper()}
-Unit                : {meta['unit']}
-Climate scenario    : GWL {scenario_label}
-Hazard description  : {meta['description']}
+Export date         : --
+Active layer        : --
+Hazard type         : --
+Unit                : --
+Climate scenario    : --
+Hazard description  : --
 
 Color ramp
-Minimum value     : {vmin:.4f} {meta['unit']}
-Maximum value     : {vmax:.4f} {meta['unit']}
+Minimum value     : -- --
+Maximum value     : -- --
 
 Colorado bounding box (WGS-84)
-lonMin            : {BBOX_WGS84['lonMin']}
-lonMax            : {BBOX_WGS84['lonMax']}
-latMin            : {BBOX_WGS84['latMin']}
-latMax            : {BBOX_WGS84['latMax']}
+lonMin            : --
+lonMax            : --
+latMin            : --
+latMax            : --
               </pre>
             </div>
 
@@ -79,6 +83,6 @@ latMax            : {BBOX_WGS84['latMax']}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
   </body>
 </html>
