@@ -17,8 +17,6 @@ import xarray as xr
 import pandas as pd
 import xesmf
 import rioxarray
-import geopandas
-import pyproj
 
 from util.transforms import (
     mask_to_co,
@@ -27,16 +25,7 @@ from util.transforms import (
     create_crs_and_trf_from_cf_to_latlon
 )
 
-####
-# todo functions and such
-####
-
-# ...
-
-#######
-# CLI #
-#######
-
+# This script operates primarily in the CLI context
 
 if __name__ == "__main__":
     # Take input
@@ -131,7 +120,7 @@ if __name__ == "__main__":
                 ).rio.to_raster(
                     f, driver="GTiff"
                 )
-                dt[grid][base_variable][varname].attrs["tif_out_lcc"] = str(f)
+                dt[grid][base_variable][varname].attrs["tif_out_lcc"] = str(f.relative_to(output_path))
 
                 # Save reprojected
                 method = ds[varname].attrs.get("regrid_method")
@@ -149,7 +138,7 @@ if __name__ == "__main__":
                 ).rio.to_raster(
                     f, driver="GTiff"
                 )
-                dt[grid][base_variable][varname].attrs["tif_out_4326"] = str(f)
+                dt[grid][base_variable][varname].attrs["tif_out_4326"] = str(f.relative_to(output_path))
                 # epsg3857
                 f = (
                     output_path / "wgs84_pseudomercator" / base_variable /
@@ -164,7 +153,7 @@ if __name__ == "__main__":
                 ).rio.to_raster(
                     f, driver="GTiff"
                 )
-                dt[grid][base_variable][varname].attrs["tif_out_3857"] = str(f)
+                dt[grid][base_variable][varname].attrs["tif_out_3857"] = str(f.relative_to(output_path))
 
                 # Search for symbology ref and insert into dt
                 print(f"[index] Fetching symbology metadata for {varname}")

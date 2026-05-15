@@ -4,16 +4,12 @@ import numpy as np
 import xarray as xr
 import pyproj
 
+from .geofeatures import CO_BOUNDS
+
 #######################
 # Specified Constants #
 #######################
 
-CO_BOUNDS = {
-    "min_lat": 37.0,
-    "min_lon": -109.046667,
-    "max_lat": 41.0,
-    "max_lon": -102.046667
-}
 CLIP_MARGIN_DEGREES = 0.5
 
 ############################

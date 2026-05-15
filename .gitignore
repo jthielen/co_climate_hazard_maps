@@ -219,6 +219,8 @@ __marimo__/
 
 # working/temp docs and output
 _temp_*.py
+_temp_*.ipynb
+_temp_*.png
 *.zip
 
 # misc ignore

@@ -1,0 +1,32 @@
+{
+    "tx90f": {
+        "name":        "Days Above 90°F (TX90F)",
+        "unit":        "days",
+        "description": "Number of days per year when the daily maximum temperature exceeds 90°F. Positive values indicate more hot days relative to the historical reference period (1981–2010)."
+    },
+    "heat": {
+        "name":        "Heat Index Exceedance",
+        "unit":        "days",
+        "description": "Number of days per year when the heat index exceeds dangerous thresholds relative to the historical baseline."
+    },
+    "extreme_heat": {
+        "name":        "Extreme Heat Days",
+        "unit":        "days",
+        "description": "Number of days per year exceeding extreme heat thresholds relative to the historical baseline."
+    },
+    "wbgt": {
+        "name":        "Wet-Bulb Globe Temperature (WBGT)",
+        "unit":        "°C",
+        "description": "Change in wet-bulb globe temperature, a composite heat-stress metric accounting for temperature, humidity, wind, and solar radiation."
+    },
+    "precip": {
+        "name":        "Precipitation Change",
+        "unit":        "mm",
+        "description": "Change in annual or seasonal precipitation relative to the historical reference period (1981–2010). Positive = wetter."
+    },
+    "wind": {
+        "name":        "Wind Speed Change",
+        "unit":        "m/s",
+        "description": "Change in mean wind speed relative to the historical reference period (1981–2010)."
+    }
+}

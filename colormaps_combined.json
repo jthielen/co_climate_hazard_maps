@@ -1,0 +1,100 @@
+{
+    "colormaps": {
+        "esherman_extreme_precip": {
+            "color_list": ["#ffffff","#d7dad1","#ced5c4","#bbcfb6","#9fc5a6","#8bbaa6","#78aea8","#65a2a9","#5495aa","#5385a4","#5a789c","#6d678b","#885c7c","#9e5e72","#b66a63","#c27061","#cd744a"],
+            "type": "continuous",
+            "quantization_levels": 18,
+            "source": "esherman—from extreme precipitation community post on linkedin"
+        },
+        "esherman_ari_categorical": {
+            "color_list": ["#ffffff", "#409a8e", "#616f8e", "#6308a8", "#c6573b", "#d7a0b6"],
+            "type": "categorical",
+            "quantization_levels": 18,
+            "source": "esherman—from extreme precipitation community post on linkedin"
+        },
+        "updated_govoffice_rain": {
+            "color_list": ["#F4FFF7","#EAF8EF","#DFF2E6","#D1EDDE","#C3E8D5","#B2E3CD","#9FDEC7","#8BD9C1","#74D4BC","#5CCEB7","#45C8B3","#2EC2B0","#1ABBAD","#07B3AA","#00ABA7","#01A3A4","#099CA0","#13949C","#1A8C97","#208493","#257C8E","#2A7588","#2D6D82","#30667C","#325E76","#33576F","#335068","#334961","#32425A","#303C53","#2D364C","#293045"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "jthielen—adapted from govoffice precip colortable"
+        },
+        "updated_govoffice_fire": {
+            "color_list": ["#FFF9E3","#FCF1DB","#F8E9D2","#F4E1CA","#F0D9C1","#EDD0B9","#EBC8B2","#E8BFAB","#E6B6A5","#E4ADA0","#E3A39C","#E19A98","#DF8F96","#DE8595","#DC7A95","#D96F95","#D66496","#D15A98","#CB5099","#C24999","#B94299","#AE3D98","#A23A97","#963694","#893492","#7C318E","#6F308A","#612E85","#532C80","#452B7A","#382873","#2E246D"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "jthielen—adapted from govoffice wildfire colortable"
+        },
+        "updated_govoffice_heat": {
+            "color_list": ["#FFFFFE","#F7F7F6","#F0EFED","#E8E7E3","#E1DFD9","#DAD7CD","#D3CFC2","#CDC7B6","#C7C0A9","#C1B89D","#BBB091","#B6A886","#B29F7C","#AE9773","#AA8E6B","#A68565","#A27D5F","#9E745A","#9A6B55","#966250","#915A4B","#8D5145","#884840","#83403A","#7D3834","#77302D","#712827","#6A2020","#631819","#5C1013","#54070B","#4D0000"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "jthielen—adapted from govoffice heat colortable"
+        },
+        "updated_govoffice_cold": {
+            "color_list": ["#F9FFFF","#EFF9FA","#E3F1F4","#D6EAEF","#C9E2EB","#BCDBE7","#B0D3E5","#A5CBE2","#9DC2E0","#96B9DD","#92B0D9","#90A6D4","#8F9DCD","#8F93C5","#8F8ABB","#8E80B2","#8C77A7","#8A6E9D","#866692","#825E87","#7C567B","#774F70","#704965","#69425B","#623C50","#5A3646","#52313C","#492B33","#41262B","#392123","#311C1C","#2A1615"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "jthielen—adapted from govoffice snow/heating degree-days colortable"
+        },
+        "updated_govoffice_drought": {
+            "color_list": ["#FFFFEC","#FFF6DD","#FAECC8","#F6E3B1","#F3D999","#EFCF80","#ECC56A","#E7BB57","#E2B147","#DDA73B","#D79D32","#D1932B","#CB8925","#C4801F","#BD761A","#B76C15","#B06310","#A9590A","#A25006","#9B4603","#943D01","#8C3300","#852900","#7D1F00","#741500","#6A0C00","#5F0503","#530406","#440708","#350909","#280707","#1F0000"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "jthielen—adapted from govoffice drought colortable"
+        },
+        "updated_wetdry": {
+            "color_list": ["#00291E","#00362B","#00443A","#005249","#006158","#007067","#007F76","#118E84","#379D93","#55ACA1","#72BAB0","#8EC8BF","#AAD6CE","#C6E4DD","#E1F2E9","#FBFFF4","#F2EFD9","#E8DDBE","#DDCCA1","#D2BB84","#C8AA68","#BD984C","#B38732","#A87518","#9C6400","#8F5400","#804500","#703800","#5F2B00","#4F1F00","#411200"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "jthielen—adapted from govoffice precip change tables, matplotlib BrBG, and cmocean's tarn"
+        },
+        "cmo.speed": {
+            "color_list": ["#FFFDCD","#F9F3BC","#F4EAAB","#EFE19A","#E8D786","#E2CE75","#DAC764","#D2C053","#C7B941","#BBB332","#AFAE25","#A2A919","#93A30E","#859F07","#779A06","#689509","#588F0F","#498A16","#3B841C","#2D7E21","#1F7726","#157029","#0D692B","#0B622D","#0D592D","#11522C","#144A2A","#174227","#193A23","#19321E","#192B19","#172313"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        },
+        "cmo.amp": {
+            "color_list": ["#F1EDEC","#EDE3E1","#E9DAD6","#E6D1CA","#E2C6BD","#DFBDB2","#DCB4A6","#D9AA9B","#D6A08E","#D49782","#D18E77","#CE856C","#CB7A60","#C87155","#C5684A","#C25E41","#BE5336","#BA492F","#B63F29","#B13425","#AA2824","#A31F25","#9B1727","#921128","#870E29","#7C0E29","#710E27","#670F24","#5B0E20","#510D1C","#460B17","#3C0912"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        },
+        "cmo.tempo": {
+            "color_list": ["#FFF6F4","#F4EEE8","#E9E7DD","#DDE0D1","#D1D8C5","#C5D2BB","#B9CCB2","#ACC6A9","#9EC09F","#91BA98","#83B592","#74AF8D","#63A988","#54A484","#439E82","#349880","#24907F","#19897D","#12827B","#117A78","#137275","#166A71","#19636D","#1A5B69","#1C5364","#1C4C5F","#1C445B","#1B3D56","#1A3551","#182D4C","#172548","#151D44"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        },
+        "cmo.ice": {
+            "color_list": ["#040613","#0B0D1E","#13132A","#1A1A35","#222143","#29274F","#2F2D5C","#343369","#393A78","#3C4185","#3E4992","#3F519D","#3E5AA6","#3E63AD","#3F6CB2","#4075B5","#447FB9","#4988BC","#4E90BF","#5599C2","#5DA2C5","#64ABC9","#6DB3CC","#77BCCF","#83C5D3","#90CDD7","#9ED5DB","#ADDCE0","#BEE5E7","#CDECEF","#DCF4F6","#EAFDFD"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        },
+        "cmo.balance": {
+            "color_list": ["#181C43","#20275B","#27337A","#293E97","#214CB6","#0C5EBE","#1670BC","#2B7FBA","#438FBA","#599CBB","#75AABE","#8EB5C3","#AAC2CB","#C1CFD4","#DBDEE0","#F1ECEB","#E9D9D5","#E1C4BB","#DCB2A4","#D69D8A","#D08B73","#CA765B","#C36346","#BC4D32","#B33826","#A52125","#941328","#7E0E29","#680F25","#510D1C","#3C0912"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        },
+        "cmo.deep": {
+            "color_list": ["#FDFECC","#EDF7C3","#DDF2BA","#CCECB3","#B9E5AC","#A7E0A7","#96DAA4","#85D3A3","#75CCA3","#69C4A4","#60BDA4","#59B4A4","#53ABA3","#50A3A2","#4D9BA1","#4A939F","#478A9D","#44829B","#427A99","#407298","#3E6996","#3E6194","#3E5892","#404F8D","#414684","#413F78","#3F386B","#3C325D","#372C4F","#322643","#2D2037","#281A2C"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        },
+        "cmo.turbid": {
+            "color_list": ["#E9F6AB","#E4EC9F","#E0E394","#DCDA88","#D8D07C","#D4C772","#D0BE68","#CDB55F","#C9AB56","#C5A34F","#C19A49","#BC9244","#B78940","#B1823E","#AC7B3D","#A5743C","#9E6D3B","#96673A","#8F613A","#875C39","#7E5639","#765138","#6E4C36","#654734","#5C4232","#543D30","#4B382D","#43332A","#3A2E26","#322923","#2A241F","#221F1B"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        },
+        "cmo.matter": {
+            "color_list": ["#FEEDB0","#FDE2A5","#FBD79B","#FACC91","#F9BF86","#F7B47D","#F6A975","#F49F6D","#F19265","#EF875F","#EC7C5A","#E97256","#E46653","#DF5B53","#D95153","#D34855","#CA3F58","#C2385A","#B9325D","#B02C5F","#A52662","#9B2263","#911F63","#861D63","#7A1B62","#70195F","#65185C","#5A1757","#4E1651","#44144B","#391245","#2F0F3E"],
+            "type": "continuous",
+            "quantization_levels": "LUT",
+            "source": "cmocean—direct export"
+        }
+    }
+}
