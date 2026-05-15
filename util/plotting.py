@@ -171,7 +171,7 @@ def render_cities(ax: Axes, zorder: SupportsFloat = Z_CITIES) -> None:
     for city in CITIES:
         lon, lat = city["lon"], city["lat"]
         ax.plot(
-            lon, lat, marker="o", markersize=6, color="#dc143c", markeredgecolor=(1,1,1,1.0),
+            lon, lat, marker="o", markersize=5.5, color="#dc143c", markeredgecolor=(1,1,1,1.0),
             markeredgewidth=1.0, transform=GEODETIC, zorder=zorder
         )
         ax.text(

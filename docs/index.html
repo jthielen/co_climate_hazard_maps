@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CO Climate Hazard Maps - Web Viewer and Download Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">CO Climate Hazard Maps - Figure Tool</a>
+        <div class="d-flex justify-content-end">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://drive.google.com/drive/folders/1GVP62K6DQYM5vCQfjE3n4rUWL0R9hvfi?usp=sharing">Google Drive Collections</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <div class="input-group mb-5">
+        <label class="input-group-text" for="VarKeySelect">Variable Key</label>
+        <select class="form-select" id="VarKeySelect" tabindex="1">
+          <option selected>Choose...</option>
+          <option value="agg_5th_pct_change">agg_5th_pct_change</option>
+          <option value="agg_20th_pct_change">agg_20th_pct_change</option>
+        </select>
+        <label class="input-group-text" for="VarKeySelect">Subkey</label>
+        <select class="form-select" id="VarKeySelect" aria-label="Disabled until variable selected" disabled tabindex="2">
+          <option selected>← Select Variable ←</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mb-3">
+          <img src="EXAMPLE_agg_5th_pct_change_GWL_2.5.png" class="img-fluid">
+        </div>
+        <div class="col-lg-4 mb-3">
+          <div class="card mb-3" style="width: 100%;">
+            <div class="card-header text-center">Colorbar</div>
+            <img src="EXAMPLE_legend.png" class="">
+            <div class="card-body row">
+              <div class="col-6 text-start">vmin:<br><span id="VMin">--</span></div>
+              <div class="col-6 text-end">vmax:<br><span id="VMax">--</span></div>
+            </div>
+          </div>
+          <div class="card mb-3" style="width: 100%;">
+            <div class="card-header text-center">Legend Text</div>
+            <div class="card-body">
+              <pre id="LegendText">
+Colorado Climate Hazard Map — Legend Metadata
+
+Export date         : {export_date}
+Active layer        : {meta['name']}
+Hazard type         : {hazard_id.upper()}
+Unit                : {meta['unit']}
+Climate scenario    : GWL {scenario_label}
+Hazard description  : {meta['description']}
+
+Color ramp
+Minimum value     : {vmin:.4f} {meta['unit']}
+Maximum value     : {vmax:.4f} {meta['unit']}
+
+Colorado bounding box (WGS-84)
+lonMin            : {BBOX_WGS84['lonMin']}
+lonMax            : {BBOX_WGS84['lonMax']}
+latMin            : {BBOX_WGS84['latMin']}
+latMax            : {BBOX_WGS84['latMax']}
+              </pre>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
