@@ -56,24 +56,6 @@
             <div class="card-header text-center">Legend Text</div>
             <div class="card-body">
               <pre id="LegendText">
-Colorado Climate Hazard Map — Legend Metadata
-
-Export date         : --
-Active layer        : --
-Hazard type         : --
-Unit                : --
-Climate scenario    : --
-Hazard description  : --
-
-Color ramp
-Minimum value     : -- --
-Maximum value     : -- --
-
-Colorado bounding box (WGS-84)
-lonMin            : --
-lonMax            : --
-latMin            : --
-latMax            : --
               </pre>
             </div>
 
@@ -88,6 +70,11 @@ latMax            : --
     <script type="module">
       import jsonData from './collection_reference.json' with { type: 'json' };
       var figBaseUrl = 'https://fs.thielen.science/co_climate/export_20260519/generated_figures/';
+      $.fn.multiline = function(text){
+          this.text(text);
+          this.html(this.html().replace(/\n/g,'<br/>'));
+          return this;
+      }
       for (let key in jsonData) {
         $("#VarKeySelect").append($('<option>', {
           value: key,
@@ -100,6 +87,7 @@ latMax            : --
         var valueSelected = this.value;
         $("#VarSubkeySelect").find("option:not(#NullSubkey)").remove();
         $("#HazardFigure").prop("src", "EXAMPLE_blank_figure.png");
+        $("#LegendText").text("");
         for (let key in jsonData[valueSelected]) {
           $("#VarSubkeySelect").append($('<option>', {
             value: key,
@@ -122,6 +110,7 @@ latMax            : --
           $("#VMax").text(jsonData[baseKeySelected][valueSelected]["vmax"]);
           $("#RelPath").text(jsonData[baseKeySelected][valueSelected]["collection_path"]);
           $("#PathRow").removeClass("d-none");
+          $("#LegendText").multiline(jsonData[baseKeySelected][valueSelected]["legend_text"]);
         }
       });
     </script>
