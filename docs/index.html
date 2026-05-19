@@ -23,14 +23,15 @@
 
     <div class="container my-5">
       <div class="input-group mb-5">
-        <label class="input-group-text" for="VarKeySelect">Variable Key</label>
+        <label class="input-group-text">Variable Key</label>
+        <label class="input-group-text" for="VarKeySelect">Base Variable</label>
         <select class="form-select" id="VarKeySelect" tabindex="1">
           <option selected>Choose...</option>
-          <option>...populating keys...</option>
+          <option id="TempPopulating">...populating keys...</option>
         </select>
-        <label class="input-group-text" for="VarKeySelect">Subkey</label>
-        <select class="form-select" id="VarKeySelect" aria-label="Disabled until variable selected" disabled tabindex="2">
-          <option selected>← Select Variable ←</option>
+        <label class="input-group-text" for="VarSubkeySelect">Subtype</label>
+        <select class="form-select" id="VarSubkeySelect" aria-label="Disabled until variable selected" disabled tabindex="2">
+          <option selected id="NullSubkey">← Select Variable ←</option>
         </select>
       </div>
       <div id="PathRow" class="row d-none">
@@ -40,12 +41,12 @@
       </div>
       <div class="row">
         <div class="col-lg-8 mb-3">
-          <img src="EXAMPLE_blank_figure.png" class="img-fluid">
+          <img src="EXAMPLE_blank_figure.png" class="img-fluid" id="HazardFigure">
         </div>
         <div class="col-lg-4 mb-3">
           <div class="card mb-3" style="width: 100%;">
             <div class="card-header text-center">Colorbar</div>
-            <img src="EXAMPLE_legend.png" class="">
+            <img src="EXAMPLE_legend.png" class="" id="HazardColorbar">
             <div class="card-body row">
               <div class="col-6 text-start">vmin:<br><span id="VMin">--</span></div>
               <div class="col-6 text-end">vmax:<br><span id="VMax">--</span></div>
@@ -84,5 +85,45 @@ latMax            : --
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script type="module">
+      import jsonData from './collection_reference.json' with { type: 'json' };
+      var figBaseUrl = 'https://fs.thielen.science/co_climate/export_20260514/generated_figures/';
+      for (let key in jsonData) {
+        $("#VarKeySelect").append($('<option>', {
+          value: key,
+          text: key
+        }));
+      }
+      $("#TempPopulating").remove();
+      $("#VarKeySelect").on('change', function (e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        $("#VarSubkeySelect").find("option:not(#NullSubkey)").remove();
+        $("#HazardFigure").prop("src", "EXAMPLE_blank_figure.png");
+        for (let key in jsonData[valueSelected]) {
+          $("#VarSubkeySelect").append($('<option>', {
+            value: key,
+            text: key
+          }));
+        }
+        $("#VarSubkeySelect").removeAttr("disabled");
+        $("#NullSubkey").prop('selected', true);
+        $("#PathRow").addClass("d-none");
+      });
+      $("#VarSubkeySelect").on('change', function (e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        var baseKeySelected = $("#VarKeySelect").val();
+        if ( valueSelected ) {
+          // update urls
+          $("#HazardFigure").prop("src", figBaseUrl + jsonData[baseKeySelected][valueSelected]["figure_path"]);
+          $("#HazardColorbar").prop("src", figBaseUrl + jsonData[baseKeySelected][valueSelected]["colorbar_path"]);
+          $("#VMin").text(jsonData[baseKeySelected][valueSelected]["vmin"]);
+          $("#VMax").text(jsonData[baseKeySelected][valueSelected]["vmax"]);
+          $("#RelPath").text(jsonData[baseKeySelected][valueSelected]["collection_path"]);
+          $("#PathRow").removeClass("d-none");
+        }
+      });
+    </script>
   </body>
 </html>
