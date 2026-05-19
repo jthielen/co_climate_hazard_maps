@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
         # Create legend text
         legend_txt_path = this_output_path / f"LEGEND_{key}.txt"
-        write_legend_txt(legend_txt_path, meta, now, interactive=True)
+        legend_txt = write_legend_txt(legend_txt_path, meta, now, interactive=True)
 
         # Add to output json collection
         if meta['base_variable'] not in output_meta:
@@ -150,6 +150,7 @@ if __name__ == "__main__":
             "legend_path": str(legend_txt_path.relative_to(output_path)),
             "vmin": meta['symbology_min_value'],
             "vmax": meta['symbology_max_value'],
+            "legend_text": legend_txt
         }
 
     # create collection index

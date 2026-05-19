@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Any, Union, Dict, SupportsFloat
+from typing import Any, Union, Dict, SupportsFloat, Optional
 
 import numpy as np
 import pandas as pd
@@ -175,9 +175,16 @@ def render_cities(ax: Axes, zorder: SupportsFloat = Z_CITIES) -> None:
             markeredgewidth=1.0, transform=GEODETIC, zorder=zorder
         )
         ax.text(
-            lon + 0.06, lat + 0.04, city["name"], fontsize=7.5, fontweight="bold",
-            color="#111111", path_effects=[pe.withStroke(linewidth=2.2, foreground=(1,1,1,0.75))],
-            transform=GEODETIC, zorder=zorder
+            lon + (-0.06 if city.get("anchor", "NE") in ("NW", "SW") else 0.05),
+            lat + (-0.09 if city.get("anchor", "NE") in ("SW", "SE") else 0.04),
+            city["name"],
+            fontsize=7.5,
+            fontweight="bold",
+            color="#111111",
+            path_effects=[pe.withStroke(linewidth=2.2, foreground=(1,1,1,0.75))],
+            transform=GEODETIC,
+            zorder=zorder,
+            ha=("right" if city.get("anchor", "NE") in ("NW", "SW") else "left")
         )
         
 

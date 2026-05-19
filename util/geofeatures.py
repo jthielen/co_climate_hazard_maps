@@ -41,21 +41,21 @@ RIVERS_URL = (
 )
 
 CITIES = [
-    {"name": "Aurora",           "lon": -104.7275, "lat": 39.7084},
-    {"name": "Boulder",          "lon": -105.2515, "lat": 40.0273},
-    {"name": "Colorado Springs", "lon": -104.7606, "lat": 38.8674},
-    {"name": "Craig",            "lon": -107.5557, "lat": 40.5170},
-    {"name": "Denver",           "lon": -104.9893, "lat": 39.7627},
-    {"name": "Durango",          "lon": -107.8703, "lat": 37.2750},
-    {"name": "Fort Collins",     "lon": -105.0657, "lat": 40.5478},
-    {"name": "Glenwood Springs", "lon": -107.3344, "lat": 39.5454},
-    {"name": "Grand Junction",   "lon": -108.5675, "lat": 39.0878},
-    {"name": "Greeley",          "lon": -104.7707, "lat": 40.4149},
-    {"name": "Gunnison",         "lon": -106.9246, "lat": 38.5490},
-    {"name": "Lamar",            "lon": -102.6152, "lat": 38.0737},
-    {"name": "Montrose",         "lon": -107.8594, "lat": 38.4688},
-    {"name": "Pueblo",           "lon": -104.6131, "lat": 38.2706},
-    {"name": "Trinidad",         "lon": -104.4908, "lat": 37.1749},
+    {"name": "Aurora",           "lon": -104.7275, "lat": 39.7084, "anchor": "SE"},
+    {"name": "Boulder",          "lon": -105.2515, "lat": 40.0273, "anchor": "NE"},
+    {"name": "Colorado Springs", "lon": -104.7606, "lat": 38.8674, "anchor": "NE"},
+    {"name": "Craig",            "lon": -107.5557, "lat": 40.5170, "anchor": "NE"},
+    {"name": "Denver",           "lon": -104.9893, "lat": 39.7627, "anchor": "NE"},
+    {"name": "Durango",          "lon": -107.8703, "lat": 37.2750, "anchor": "NE"},
+    {"name": "Fort Collins",     "lon": -105.0657, "lat": 40.5478, "anchor": "NE"},
+    {"name": "Glenwood Springs", "lon": -107.3344, "lat": 39.5454, "anchor": "NE"},
+    {"name": "Grand Junction",   "lon": -108.5675, "lat": 39.0878, "anchor": "NE"},
+    {"name": "Greeley",          "lon": -104.7707, "lat": 40.4149, "anchor": "NE"},
+    {"name": "Gunnison",         "lon": -106.9246, "lat": 38.5490, "anchor": "NE"},
+    {"name": "Lamar",            "lon": -102.6152, "lat": 38.0737, "anchor": "NE"},
+    {"name": "Montrose",         "lon": -107.8594, "lat": 38.4688, "anchor": "SW"},
+    {"name": "Pueblo",           "lon": -104.6131, "lat": 38.2706, "anchor": "NE"},
+    {"name": "Trinidad",         "lon": -104.4908, "lat": 37.1749, "anchor": "NE"},
 ]
 
 MAJOR_RIVERS = {"colorado", "arkansas", "platte", "rio grande", "gunnison"}

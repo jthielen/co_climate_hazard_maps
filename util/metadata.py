@@ -37,7 +37,7 @@ def write_legend_txt(
     meta: Dict[str, str],
     export_date: pd.Timestamp,
     interactive: bool = False
-) -> None:
+) -> str:
     lines = [
         "Colorado Climate Hazard Map Legend – Technical Metadata",
         "=" * 55,
@@ -62,6 +62,8 @@ def write_legend_txt(
         f"    latMin          : {CO_BOUNDS['min_lat']}",
         f"    latMax          : {CO_BOUNDS['max_lat']}",
     ]
-    out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    out_text = "\n".join(lines) + "\n"
+    out_path.write_text(out_text, encoding="utf-8")
     if interactive:
         print(f"[legend] TXT → {out_path}")
+    return out_text
