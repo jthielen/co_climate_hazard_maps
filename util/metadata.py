@@ -52,8 +52,8 @@ def write_legend_txt(
     ) + [
         "",
         "Color ramp",
-        f"    Minimum value   : {float(meta['symbology_min_value']):.4f} {meta['units']}",
-        f"    Maximum value   : {float(meta['symbology_max_value']):.4f} {meta['units']}",
+        f"    Minimum value   : {meta['symbology_min_value']} {meta['units']}",
+        f"    Maximum value   : {meta['symbology_max_value']} {meta['units']}",
         f"    Colormap name   : {meta['symbology_colormap']}",
         "",
         "Colorado bounding box (WGS84)",
