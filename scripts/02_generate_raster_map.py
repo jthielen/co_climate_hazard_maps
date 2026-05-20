@@ -58,6 +58,7 @@ if __name__ == "__main__":
     parser.add_argument("--map-w-px", type=int, default=MAP_W_PX_DEFAULT)
     parser.add_argument("--create-json-ref", type=bool, default=True)
     parser.add_argument("--skip", nargs="*", type=str, default="")
+    parser.add_argument("--only", nargs="*", type=str, default="")
 
     args = parser.parse_args()
     map_h_px = args.map_h_px
@@ -88,6 +89,9 @@ if __name__ == "__main__":
             continue
         if meta['symbology_min_value'] == '--':
             print(f"[warn] Skipping {key} due to presently-unsupported symbology")
+            continue
+        if args.only and not any(bool(only) and key.startswith(only) for only in args.only):
+            # silently continue, since this is not an "only" spec
             continue
         # Load epsg3857 geotiff and prep this output collection
         print(f"[tif] Opening epsg3857 geotiff for: {key}")
@@ -156,4 +160,8 @@ if __name__ == "__main__":
     # create collection index
     if args.create_json_ref:
         print("[json] Exporting collection reference")
-        (output_path / "collection_reference.json").write_text(json.dumps(output_meta))
+        json_out = output_path / (
+            f"subset_{'_'.join(args.only)}_reference.json"
+            if args.only else "collection_reference.json"
+        )
+        json_out.write_text(json.dumps(output_meta))
