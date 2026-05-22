@@ -164,4 +164,4 @@ if __name__ == "__main__":
             f"subset_{'_'.join(args.only)}_reference.json"
             if args.only else "collection_reference.json"
         )
-        json_out.write_text(json.dumps(output_meta))
+        json_out.write_text(json.dumps(output_meta, indent=4))
