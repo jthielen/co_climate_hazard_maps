@@ -27,6 +27,11 @@ COLORADO_COUNTIES_URL = (
     "main/jobs/data/colorado_counties.geojson"
 )
 
+COLORADO_CLIMATE_REGIONS_URL = (
+    "https://raw.githubusercontent.com/jthielen/co_climate_hazard_maps/refs/heads/"
+    "main/co_clim_regions_epsg4326.geojson"
+)
+
 MAP_W_PX_DEFAULT = 1200
 MAP_H_PX_DEFAULT = 800
 

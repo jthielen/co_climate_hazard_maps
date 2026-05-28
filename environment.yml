@@ -8,6 +8,7 @@ dependencies:
   - geopandas
   - xarray
   - rioxarray
+  - geocube
   - rasterio
   - shapely
   - matplotlib
