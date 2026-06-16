@@ -84,8 +84,8 @@ growing_degree_days	['REF_actual_values']	Sequential Warm Light-to-Dark	cmo.amp	
 growing_degree_days	['GWL11C_minus_REF_change', 'GWL15C_minus_REF_change', 'GWL20C_minus_REF_change', 'GWL25C_minus_REF_change']	Diverging Cool-to-Warm	cmo.balance	-1000	1000	--
 frost_free_season	['REF_actual_values']	Sequential Warm Light-to-Dark	cmo.amp	0	365	--
 frost_free_season	['GWL11C_minus_REF_change', 'GWL15C_minus_REF_change', 'GWL20C_minus_REF_change', 'GWL25C_minus_REF_change']	Diverging Cool-to-Warm	cmo.balance	-30	30	--
-mean_annual_temp	['REF_actual_values']	Sequential Warm Light-to-Dark (actual values)	updated_govoffice_heat	20	80	--
-mean_annual_temp	['GWL11C_minus_REF_change', 'GWL15C_minus_REF_change', 'GWL20C_minus_REF_change', 'GWL25C_minus_REF_change']	Diverging Cool-to-Warm	cmo.balance	-5	5	--
+mean_annual_temp	['REF_actual_values']	Sequential Warm Light-to-Dark (actual values)	updated_govoffice_heat	20	60	--
+mean_annual_temp	['GWL11C_minus_REF_change', 'GWL15C_minus_REF_change', 'GWL20C_minus_REF_change', 'GWL25C_minus_REF_change']	Diverging Cool-to-Warm	cmo.balance	-6	6	--
 R95p	['GWL11C_minus_REF_absoule_change', 'GWL15C_minus_REF_absoule_change', 'GWL20C_minus_REF_absoule_change', 'GWL25C_minus_REF_absoule_change']	Diverging Dry-to-Wet	updated_wetdry_r	-30	30	--
 R95p	['GWL11C_minus_REF_relative_change', 'GWL15C_minus_REF_relative_change', 'GWL20C_minus_REF_relative_change', 'GWL25C_minus_REF_relative_change']	Diverging Dry-to-Wet	updated_wetdry_r	-30	30	--
 R95p	['GWL11C_actual_values', 'GWL15C_actual_values', 'GWL20C_actual_values', 'GWL25C_actual_values', 'REF_actual_values']	Sequential Precip Light-to-Dark	updated_govoffice_rain	40	300	--
