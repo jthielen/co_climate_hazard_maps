@@ -32,7 +32,9 @@ GSL	['GWL11C_minus_REF_absoule_change', 'GWL15C_minus_REF_absoule_change', 'GWL2
 GSL	['GWL11C_actual_values', 'GWL15C_actual_values', 'GWL20C_actual_values', 'GWL25C_actual_values', 'REF_actual_values']	Sequential White-Blue-Purple Light-to-Dark	updated_govoffice_cold	75	325	--
 FWSL	['hist_actual_values', 'GWL11C_actual_values', 'GWL15C_actual_values', 'GWL20C_actual_values', 'GWL25C_actual_values']	Sequential Yellow-Violet Light-to-Dark	updated_govoffice_fire	30	200	--
 SSR	['hist_actual_values', 'GWL11C_actual_values', 'GWL15C_actual_values', 'GWL20C_actual_values', 'GWL25C_actual_values']	Sequential Yellow-Violet Light-to-Dark	updated_govoffice_fire	0	120	--
-FWI_X95p	['GWL11C_actual_values', 'GWL15C_actual_values', 'GWL20C_actual_values', 'GWL25C_actual_values']	Sequential Yellow-Violet Light-to-Dark	updated_govoffice_fire	500	2400	--
+FWI_X95p	['GWL11C_actual_values', 'GWL15C_actual_values', 'GWL20C_actual_values', 'GWL25C_actual_values']	Sequential Yellow-Violet Light-to-Dark	updated_govoffice_fire	18	83	--
+FWI_mean	['hist_actual_values', 'GWL11C_actual_values', 'GWL15C_actual_values', 'GWL20C_actual_values', 'GWL25C_actual_values']	Sequential Yellow-Violet Light-to-Dark	updated_govoffice_fire	5	75	--
+EFFIS	['hist', 'GWL11C', 'GWL15C', 'GWL20C', 'GWL25C']	EFFIS Categorical (special)	weichenl_effis_categorical	--	--	['Low', 'Moderate', 'High', 'Very High', 'Extreme']
 pct_change_Aridity	['GWL11C_D1_timescale_1months', 'GWL15C_D1_timescale_1months', 'GWL20C_D1_timescale_1months', 'GWL25C_D1_timescale_1months']	Diverging Wet-to-Dry	updated_wetdry	-60	60	--
 pct_change_Aridity	['GWL11C_D1_timescale_3months', 'GWL15C_D1_timescale_3months', 'GWL20C_D1_timescale_3months', 'GWL25C_D1_timescale_3months']	Diverging Wet-to-Dry	updated_wetdry	-90	90	--
 pct_change_Aridity	['GWL11C_D1_timescale_6months', 'GWL15C_D1_timescale_6months', 'GWL20C_D1_timescale_6months', 'GWL25C_D1_timescale_6months']	Diverging Wet-to-Dry	updated_wetdry	-120	120	--
