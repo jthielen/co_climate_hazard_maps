@@ -13,6 +13,13 @@
             "quantization_levels": 18,
             "values": [0,1,10,25,50,100,1000]
         },
+        "weichenl_effis_categorical": {
+            "color_list": ["#4575b4", "#91bfdb", "#fee090", "#fc8d59", "#d73027"],
+            "type": "categorical",
+            "default_mpl_type": "LinearSegmentedColormap",
+            "quantization_levels": "LUT",
+            "values": ["Low", "Moderate", "High", "Very High", "Extreme"]
+        },
         "govoffice_socioeconomic": {
             "color_list": ["#ffffff","#b5de2b","#6ece58","#35b779","#1f9e89","#26828e","#31688e","#3e4989","#482878","#440154"],
             "type": "continuous",

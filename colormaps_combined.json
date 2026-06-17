@@ -12,6 +12,12 @@
             "quantization_levels": 18,
             "source": "esherman—from extreme precipitation community post on linkedin"
         },
+        "weichenl_effis_categorical": {
+            "color_list": ["#4575b4", "#91bfdb", "#fee090", "#fc8d59", "#d73027"],
+            "type": "categorical",
+            "quantization_levels": "LUT",
+            "source": "Weichen Liu (Univ of WY)"
+        },
         "updated_govoffice_rain": {
             "color_list": ["#F4FFF7","#EAF8EF","#DFF2E6","#D1EDDE","#C3E8D5","#B2E3CD","#9FDEC7","#8BD9C1","#74D4BC","#5CCEB7","#45C8B3","#2EC2B0","#1ABBAD","#07B3AA","#00ABA7","#01A3A4","#099CA0","#13949C","#1A8C97","#208493","#257C8E","#2A7588","#2D6D82","#30667C","#325E76","#33576F","#335068","#334961","#32425A","#303C53","#2D364C","#293045"],
             "type": "continuous",
