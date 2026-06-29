@@ -154,7 +154,8 @@ if __name__ == "__main__":
             "legend_path": str(legend_txt_path.relative_to(output_path)),
             "vmin": meta['symbology_min_value'],
             "vmax": meta['symbology_max_value'],
-            "legend_text": legend_txt
+            "legend_text": legend_txt,
+            "public_facing_name": meta['public_facing_name']
         }
 
     # create collection index

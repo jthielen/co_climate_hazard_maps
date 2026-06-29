@@ -186,6 +186,7 @@ if __name__ == "__main__":
                      getattr(ds[varname], "variable_subtype", "--"),
                      getattr(ds[varname], "units", "--"),
                      getattr(ds[varname], "technical_description", "--"),
+                     getattr(ds[varname], "public_facing_name", "--"),
                      getattr(ds[varname], "symbology_colormap_type", "--"),
                      getattr(ds[varname], "symbology_colormap", "--"),
                      getattr(ds[varname], "symbology_min_value", "--"),
@@ -197,7 +198,7 @@ if __name__ == "__main__":
             '"variable_key","geotiff_filepath_lcc_original",'
             '"geotiff_filepath_wgs84_equirectangular",'
             '"geotiff_filepath_wgs84_pseudomercator","base_variable","variable_subtype","units",'
-            '"technical_description","symbology_colormap_type","symbology_colormap",'
+            '"technical_description","public_facing_name","symbology_colormap_type","symbology_colormap",'
             '"symbology_min_value","symbology_max_value","symbology_fixed_value_list"\n'
         ))
         for row in csv_rows:
