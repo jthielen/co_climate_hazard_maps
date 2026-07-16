@@ -154,8 +154,14 @@ if __name__ == "__main__":
             "legend_path": str(legend_txt_path.relative_to(output_path)),
             "vmin": meta['symbology_min_value'],
             "vmax": meta['symbology_max_value'],
+            "colormap_name": meta['symbology_colormap'],
             "legend_text": legend_txt,
-            "public_facing_name": meta['public_facing_name']
+            "public_facing_name": meta['public_facing_name'],
+            "export_date": f"{now:%Y-%m-%d %H:%M %Z}",
+            "hazard_type": meta['base_variable'],
+            "hazard_subtype": meta['variable_subtype'],
+            "units": meta['units'],
+            "hazard_technical_description": meta['technical_description'],
         }
 
     # create collection index

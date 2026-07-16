@@ -46,7 +46,8 @@ def write_legend_txt(
         f"Hazard type         : {meta['base_variable']}",
         f"Subtype variety     : {meta['variable_subtype']}",
         f"Unique ID           : {meta['variable_key']}",
-        f"Units               : {meta['units']}"
+        f"Units               : {meta['units']}",
+        f"Public Facing Name  : {meta['public_facing_name']}"
     ] + textwrap.wrap(
         f"Hazard description  : {meta['technical_description']}", subsequent_indent="    "
     ) + [

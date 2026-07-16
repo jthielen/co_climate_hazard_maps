@@ -163,7 +163,7 @@ if __name__ == "__main__":
                     ].iterrows()
                 ):
                     if ds[varname].variable_subtype in json.loads(row['variable_subtype_list'].replace("\'", "\"")):
-                        this_symbology = {k:v for k,v in row.to_dict().items() if k.startswith("symb")}
+                        this_symbology = {k:v for k,v in row.to_dict().items() if k.startswith("symb") or k.startswith("pub")}
                         # load this symbology into dt
                         for k, v in this_symbology.items():
                             dt[grid][base_variable][varname].attrs[k] = v
