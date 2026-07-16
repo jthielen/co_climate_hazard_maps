@@ -12,17 +12,16 @@
       <div class="container">
         <a class="navbar-brand" href="#">CO Climate Hazard Maps - Figure Tool</a>
         <div class="d-flex justify-content-end">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="https://drive.google.com/drive/folders/1GVP62K6DQYM5vCQfjE3n4rUWL0R9hvfi?usp=sharing">Google Drive Collections</a>
-            </li>
-          </ul>
+          <div class="text-end">
+            <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#collectionModal">Collection Summary</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchModal">Advanced Search</button>
+          </div>
         </div>
       </div>
     </nav>
 
-    <div class="container my-5">
-      <div class="input-group mb-5">
+    <div class="container my-4">
+      <div class="input-group mb-3">
         <label class="input-group-text">Variable Key</label>
         <label class="input-group-text" for="VarKeySelect">Base Variable</label>
         <select class="form-select" id="VarKeySelect" tabindex="1">
@@ -35,8 +34,10 @@
         </select>
       </div>
       <div id="PathRow" class="row d-none">
-        <div class="alert alert-primary" role="alert">
-          This figure is located at the following path: <span id="RelPath" class="font-monospace">generated_figures/SWEIpctchangeinfreq/agg_5th_pct_change_GWL_2.5/</span>
+        <div class="col-12">
+          <div class="alert alert-primary" role="alert">
+            This figure is located at the following path: <span id="RelPath" class="font-monospace">generated_figures/SWEIpctchangeinfreq/agg_5th_pct_change_GWL_2.5/</span>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -48,19 +49,108 @@
             <div class="card-header text-center">Colorbar</div>
             <img src="EXAMPLE_legend.png" class="" id="HazardColorbar">
             <div class="card-body row">
-              <div class="col-6 text-start">vmin:<br><span id="VMin">--</span></div>
-              <div class="col-6 text-end">vmax:<br><span id="VMax">--</span></div>
+              <div class="col-3 text-start">vmin:<br><span id="VMin" class="legend-field">--</span></div>
+              <div class="col-6 text-center">name:<br><span id="cmapName" class="legend-field">--</span></div>
+              <div class="col-3 text-end">vmax:<br><span id="VMax" class="legend-field">--</span></div>
             </div>
           </div>
           <div class="card mb-3" style="width: 100%;">
-            <div class="card-header text-center">Legend Text</div>
-            <div class="card-body">
-              <pre id="LegendText">
-              </pre>
+            <div class="card-header text-center">Legend</div>
+            <div class="card-body overflow-x-scroll">
+              <table class="table table-hover">
+                <tbody>
+                  <tr><th scope="row">Unique ID</th><td id="metaKey" class="legend-field"></td></tr>
+                  <tr><th scope="row">Public Facing Name</th><td id="metaPubName" class="legend-field"></td></tr>
+                  <tr><th scope="row">Hazard Type</th><td id="metaType" class="legend-field"></td></tr>
+                  <tr><th scope="row">Subtype Variety</th><td id="metaSubtype" class="legend-field"></td></tr>
+                  <tr><th scope="row">Export Date</th><td id="metaExportDate" class="legend-field"></td></tr>
+                  <tr><th scope="row">Units</th><td id="metaUnits" class="legend-field"></td></tr>
+                  <tr><th scope="row">Description</th><td id="metaDescription" class="legend-field"></td></tr>
+                </tbody>
+              </table>
             </div>
 
           </div>
 
+        </div>
+      </div>
+    </div>
+    <footer class="py-3 border-top">
+      <p class="text-center"><a href="https://drive.google.com/drive/folders/1GVP62K6DQYM5vCQfjE3n4rUWL0R9hvfi?usp=sharing" class="btn btn-light">Google Drive Collections</a></p>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="collectionModal" tabindex="-1" aria-labelledby="collectionModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="collectionModalLabel">Collection Summary</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <p>The current data collection contains the following data variables:</p>
+                  <table class="table table-hover" id="collectionTable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Variable Group</th>
+                        <th scope="col">Public Facing Name(s)</th>
+                        <th scope="col"># of Images/Subvariables</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="searchModalLabel">Advanced Search</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Search Field</span>
+                    <select class="form-select" id="searchField" aria-label="Field selection">
+                      <option selected value="legend_text">All Fields</option>
+                      <option value="variable_key">Unique ID</option>
+                      <option value="public_facing_name">Public Facing Name</option>
+                      <option value="hazard_technical_description">Technical Description</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Search..." aria-label="Search entry" id="searchValue">
+                    <button class="btn btn-primary" type="button" onclick="runSearch()">Search</button>
+                  </div>
+                  <div class="placeholder-wave results d-none" id="resultsLoading">
+                    <p>Loading results...</p>
+                    <span class="placeholder col-12"></span>
+                  </div>
+                  <div class="results d-none" id="resultsFound">
+                    <p><span id="searchResultsCount">--</span> results found.</p>
+                    <div id="resultsDisplay">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" type="button" onclick="runSearch()">Search</button>
+          </div>
         </div>
       </div>
     </div>
@@ -80,6 +170,15 @@
           value: key,
           text: key
         }));
+        var pubNames = [];
+        var subvarCount = 0;
+        for (let subkey in jsonData[key]) {
+          subvarCount++;
+          if (!pubNames.includes(jsonData[key][subkey]["public_facing_name"])) {
+            pubNames.push(jsonData[key][subkey]["public_facing_name"]);
+          }
+        }
+        $("#collectionTable tbody").append("<tr><td>" + key + "</td><td>" + pubNames.join(", ") + "</td><td>" + subvarCount + "</td></tr>");
       }
       $("#TempPopulating").remove();
       $("#VarKeySelect").on('change', function (e) {
@@ -87,7 +186,8 @@
         var valueSelected = this.value;
         $("#VarSubkeySelect").find("option:not(#NullSubkey)").remove();
         $("#HazardFigure").prop("src", "EXAMPLE_blank_figure.png");
-        $("#LegendText").text("");
+        //$("#LegendText").text("");
+        $(".legend-field").text("");
         for (let key in jsonData[valueSelected]) {
           $("#VarSubkeySelect").append($('<option>', {
             value: key,
@@ -108,11 +208,80 @@
           $("#HazardColorbar").prop("src", figBaseUrl + jsonData[baseKeySelected][valueSelected]["colorbar_path"]);
           $("#VMin").text(jsonData[baseKeySelected][valueSelected]["vmin"]);
           $("#VMax").text(jsonData[baseKeySelected][valueSelected]["vmax"]);
+          $("#cmapName").text(jsonData[baseKeySelected][valueSelected]["colormap_name"]);
+          $("#metaPubName").text(jsonData[baseKeySelected][valueSelected]["public_facing_name"]);
+          $("#metaKey").text(jsonData[baseKeySelected][valueSelected]["variable_key"]);
+          $("#metaType").text(jsonData[baseKeySelected][valueSelected]["hazard_type"]);
+          $("#metaSubtype").text(jsonData[baseKeySelected][valueSelected]["hazard_subtype"]);
+          $("#metaUnits").text(jsonData[baseKeySelected][valueSelected]["units"]);
+          $("#metaDescription").text(jsonData[baseKeySelected][valueSelected]["hazard_technical_description"]);
+          $("#metaExportDate").text(jsonData[baseKeySelected][valueSelected]["export_date"]);
           $("#RelPath").text(jsonData[baseKeySelected][valueSelected]["collection_path"]);
           $("#PathRow").removeClass("d-none");
-          $("#LegendText").multiline(jsonData[baseKeySelected][valueSelected]["legend_text"]);
+          //$("#LegendText").multiline(jsonData[baseKeySelected][valueSelected]["legend_text"]);
         }
       });
+      function runSearch() {
+        $("#resultsLoading").removeClass("d-none");
+        $("#resultsFound").addClass("d-none");
+        $("#resultsDisplay").html("");
+        var searchVal = $("#searchValue").val();
+        if (searchVal.length < 3) {
+          alert("Search requires at least three character search string for optimal performance.");
+          return;
+        }
+        var resultsCount = 0;
+        var re = new RegExp(searchVal, "i");
+        for (let key in jsonData) {
+          for (let subkey in jsonData[key]) {
+            if (re.test(jsonData[key][subkey][$("#searchField").val()])) {
+              resultsCount++;
+              $("#resultsDisplay").append("<div class=\"row border-bottom py-2\"><div class=\"col-2\"><img class=\"img-fluid\" src=\"" + figBaseUrl + jsonData[key][subkey]["figure_path"] + "\"></div><div class=\"col-8\"><h5>" + jsonData[key][subkey]["variable_key"] + "</h5><p class=\"my-0\">" + jsonData[key][subkey]["hazard_type"] + " / " + jsonData[key][subkey]["hazard_subtype"] + "<br>" + jsonData[key][subkey]["public_facing_name"] + "</p></div><div class=\"col-2\"><button class=\"btn btn-primary\" onclick=\"selectFigure('" + key + "', '" + subkey + "')\" data-bs-dismiss=\"modal\">Select</button></div></div>");
+            }
+          }
+        }
+        $("#searchResultsCount").text(resultsCount);
+        $("#resultsLoading").addClass("d-none");
+        $("#resultsFound").removeClass("d-none");
+      }
+      window.runSearch = runSearch;
+      window.jsonData = jsonData;
+      window.figBaseUrl = figBaseUrl;
+    </script>
+    <script>
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      function selectFigure(vargroup, subvar){
+        $("#VarKeySelect option[value=" + vargroup + "]").prop("selected", true);
+        $("#VarSubkeySelect").find("option:not(#NullSubkey)").remove();
+        $("#HazardFigure").prop("src", "EXAMPLE_blank_figure.png");
+        $(".legend-field").text("");
+        for (let key in window.jsonData[vargroup]) {
+          $("#VarSubkeySelect").append($('<option>', {
+            value: key,
+            text: key
+          }));
+        }
+        $("#VarSubkeySelect").removeAttr("disabled");
+        $("#NullSubkey").prop('selected', true);
+        $("#PathRow").addClass("d-none");
+        $("#VarSubkeySelect option[value=" + subvar + "]").prop("selected", true);
+        $("#HazardFigure").prop("src", figBaseUrl + jsonData[vargroup][subvar]["figure_path"]);
+        $("#HazardColorbar").prop("src", figBaseUrl + jsonData[vargroup][subvar]["colorbar_path"]);
+        $("#VMin").text(jsonData[vargroup][subvar]["vmin"]);
+        $("#VMax").text(jsonData[vargroup][subvar]["vmax"]);
+        $("#cmapName").text(jsonData[vargroup][subvar]["colormap_name"]);
+        $("#metaPubName").text(jsonData[vargroup][subvar]["public_facing_name"]);
+        $("#metaKey").text(jsonData[vargroup][subvar]["variable_key"]);
+        $("#metaType").text(jsonData[vargroup][subvar]["hazard_type"]);
+        $("#metaSubtype").text(jsonData[vargroup][subvar]["hazard_subtype"]);
+        $("#metaUnits").text(jsonData[vargroup][subvar]["units"]);
+        $("#metaDescription").text(jsonData[vargroup][subvar]["hazard_technical_description"]);
+        $("#metaExportDate").text(jsonData[vargroup][subvar]["export_date"]);
+        $("#RelPath").text(jsonData[vargroup][subvar]["collection_path"]);
+        $("#PathRow").removeClass("d-none");
+      }
     </script>
   </body>
 </html>
