@@ -159,7 +159,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script type="module">
       import jsonData from './collection_reference.json' with { type: 'json' };
-      var figBaseUrl = 'https://fs.thielen.science/co_climate/export_20260716/generated_figures/';
+      var figBaseUrl = 'https://wrf-cmip6-noversioning.s3.amazonaws.com/downscaled_products/Roadmap2026Update/extracted/export_20260716/generated_figures/';
       $.fn.multiline = function(text){
           this.text(text);
           this.html(this.html().replace(/\n/g,'<br/>'));
@@ -204,8 +204,15 @@
         var baseKeySelected = $("#VarKeySelect").val();
         if ( valueSelected ) {
           // update urls
-          $("#HazardFigure").prop("src", figBaseUrl + jsonData[baseKeySelected][valueSelected]["figure_path"]);
-          $("#HazardColorbar").prop("src", figBaseUrl + jsonData[baseKeySelected][valueSelected]["colorbar_path"]);
+          if ( jsonData[baseKeySelected][valueSelected]["figure_path"].startsWith("http") ){
+            // if start with http, assume direct link
+            $("#HazardFigure").prop("src", jsonData[baseKeySelected][valueSelected]["figure_path"]);
+            $("#HazardColorbar").prop("src", jsonData[baseKeySelected][valueSelected]["colorbar_path"]);
+          } else {
+            // otherwise, assume relative to figure collection
+            $("#HazardFigure").prop("src", figBaseUrl + jsonData[baseKeySelected][valueSelected]["figure_path"]);
+            $("#HazardColorbar").prop("src", figBaseUrl + jsonData[baseKeySelected][valueSelected]["colorbar_path"]);
+          }
           $("#VMin").text(jsonData[baseKeySelected][valueSelected]["vmin"]);
           $("#VMax").text(jsonData[baseKeySelected][valueSelected]["vmax"]);
           $("#cmapName").text(jsonData[baseKeySelected][valueSelected]["colormap_name"]);
@@ -236,13 +243,20 @@
           for (let subkey in jsonData[key]) {
             if (re.test(jsonData[key][subkey][$("#searchField").val()])) {
               resultsCount++;
-              $("#resultsDisplay").append("<div class=\"row border-bottom py-2\"><div class=\"col-2\"><img class=\"img-fluid\" src=\"" + figBaseUrl + jsonData[key][subkey]["figure_path"] + "\"></div><div class=\"col-8\"><h5>" + jsonData[key][subkey]["variable_key"] + "</h5><p class=\"my-0\">" + jsonData[key][subkey]["hazard_type"] + " / " + jsonData[key][subkey]["hazard_subtype"] + "<br>" + jsonData[key][subkey]["public_facing_name"] + "</p></div><div class=\"col-2\"><button class=\"btn btn-primary\" onclick=\"selectFigure('" + key + "', '" + subkey + "')\" data-bs-dismiss=\"modal\">Select</button></div></div>");
+              $("#resultsDisplay").append("<div class=\"row border-bottom py-2\"><div class=\"col-2\"><img class=\"img-fluid\" src=\"" + relOrAbsURL(jsonData[key][subkey]["figure_path"]) + "\"></div><div class=\"col-8\"><h5>" + jsonData[key][subkey]["variable_key"] + "</h5><p class=\"my-0\">" + jsonData[key][subkey]["hazard_type"] + " / " + jsonData[key][subkey]["hazard_subtype"] + "<br>" + jsonData[key][subkey]["public_facing_name"] + "</p></div><div class=\"col-2\"><button class=\"btn btn-primary\" onclick=\"selectFigure('" + key + "', '" + subkey + "')\" data-bs-dismiss=\"modal\">Select</button></div></div>");
             }
           }
         }
         $("#searchResultsCount").text(resultsCount);
         $("#resultsLoading").addClass("d-none");
         $("#resultsFound").removeClass("d-none");
+      }
+      function relOrAbsURL(inputstr) {
+        if ( inputstr.startsWith("http") ) {
+          return inputstr;
+        } else {
+          return figBaseUrl + inputstr;
+        }
       }
       window.runSearch = runSearch;
       window.jsonData = jsonData;
@@ -267,8 +281,15 @@
         $("#NullSubkey").prop('selected', true);
         $("#PathRow").addClass("d-none");
         $("#VarSubkeySelect option[value=" + subvar + "]").prop("selected", true);
-        $("#HazardFigure").prop("src", figBaseUrl + jsonData[vargroup][subvar]["figure_path"]);
-        $("#HazardColorbar").prop("src", figBaseUrl + jsonData[vargroup][subvar]["colorbar_path"]);
+        if ( jsonData[vargroup][subvar]["figure_path"].startsWith("http") ){
+          // if start with http, assume direct link
+          $("#HazardFigure").prop("src", jsonData[vargroup][subvar]["figure_path"]);
+          $("#HazardColorbar").prop("src", jsonData[vargroup][subvar]["colorbar_path"]);
+        } else {
+          // otherwise, assume relative to figure collection
+          $("#HazardFigure").prop("src", figBaseUrl + jsonData[vargroup][subvar]["figure_path"]);
+          $("#HazardColorbar").prop("src", figBaseUrl + jsonData[vargroup][subvar]["colorbar_path"]);
+        }
         $("#VMin").text(jsonData[vargroup][subvar]["vmin"]);
         $("#VMax").text(jsonData[vargroup][subvar]["vmax"]);
         $("#cmapName").text(jsonData[vargroup][subvar]["colormap_name"]);
