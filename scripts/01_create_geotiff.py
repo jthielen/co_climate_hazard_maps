@@ -53,8 +53,9 @@ if __name__ == "__main__":
     (output_path / "wgs84_equirectangular").mkdir(exist_ok=True)
     (output_path / "wgs84_pseudomercator").mkdir(exist_ok=True)
 
-    # Open source data collection
-    dt = xr.open_datatree(args.data, decode_timedelta=False)
+    # Open source data collection (with workaround for s3 access)
+    kwargs = {"storage_options": {"anon": True}, "consolidated": True} if args.data.startswith("s3") else {}
+    dt = xr.open_datatree(args.data, decode_timedelta=False, **kwargs)
 
     # Open symbology reference
     symbology_ref = pd.read_csv(args.symbology, sep="\t")
