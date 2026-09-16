@@ -67,16 +67,25 @@ if __name__ == "__main__":
     crs_conus404, trf_conus404 = create_crs_and_trf_from_cf_to_latlon(
         dt['conus404_grid']['lambert_conformal'].attrs
     )
+    if 'rm13_grid' in dt:
+        crs_rm13, trf_rm13 = create_crs_and_trf_from_cf_to_latlon(
+            dt['rm13_grid']['lambert_conformal'].attrs
+        )
 
     # Begin to loop through grids to create geotiffs
     for grid, spacing_meters, points_per_degree in (
         ("wusd3_grid", 9.0e3, 11),
         ("conus404_coarsened_grid", 1.2e4, 11),
         ("conus404_grid", 4.0e3, 33),
+        ("rm13_grid", 1.333e3, 99),
     ):
         # Get target dataset templates
         ds_out_4326 = generate_co_raster_target_4326(points_per_degree)
         ds_out_3857 = generate_co_raster_target_3857(spacing_meters)
+
+        if grid not in dt:
+            print(f"[warn] grid {grid} not found in collection—skipping...")
+            continue
         
         # Loop through variables within this grid collection
         for base_variable in dt[grid].children:
@@ -105,7 +114,12 @@ if __name__ == "__main__":
                     regridders["nearest_s2d_4326"] = xesmf.Regridder(ds, ds_out_4326, "nearest_s2d")
                     regridders["nearest_s2d_3857"] = xesmf.Regridder(ds, ds_out_3857, "nearest_s2d")
             # Save tif output and update dt with symbology
-            this_crs = crs_wusd3 if grid == "wusd3_grid" else crs_conus404
+            if grid == "rm13_grid":
+                this_crs = crs_rm13
+            elif grid == "wusd3_grid":
+                this_crs = crs_wusd3
+            else:
+                this_crs = crs_conus404
             for varname in ds.data_vars:
                 if varname in ds.coords:
                     # skip coords
@@ -172,7 +186,10 @@ if __name__ == "__main__":
     # Now that all geotiffs are created, make the geotiff index
     csv_rows = []
     print("[index] Creating geotiff index")
-    for grid in ('wusd3_grid', 'conus404_coarsened_grid', 'conus404_grid'):
+    for grid in ('wusd3_grid', 'conus404_coarsened_grid', 'conus404_grid', 'rm13_grid'):
+        if grid not in dt:
+            print(f"[warn] grid {grid} not found in collection—skipping...")
+            continue
         for base_variable in dt[grid].children:
             ds = dt[grid][base_variable].to_dataset()
             for varname in ds.data_vars:
